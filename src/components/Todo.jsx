@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TodoButtons from './TodoButtons';
 
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
@@ -10,6 +11,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+
 
 class Todo extends React.Component {
 
@@ -30,7 +32,6 @@ class Todo extends React.Component {
         <TextField
           className="editText"
           variant="outlined"
-          type="text" 
           name="title" 
           defaultValue={ this.props.title } 
           required
@@ -60,18 +61,7 @@ class Todo extends React.Component {
           />
         </ListItemIcon>
         { this.props.isEdit ? this.renderEditView() : this.renderDefaultView() }
-        <ListItemSecondaryAction>
-          <IconButton size="small" onClick={ () => this.props.handleEdit(this.props.id) }>
-            <Icon>{ this.props.isEdit ? "cancel" :  "edit_icon"}</Icon>
-          </IconButton>
-          <IconButton 
-            size="small"
-            aria-label="Delete"
-            onClick={ () => this.props.deleteTodo(this.props.id) }
-          >
-            <DeleteIcon/>
-          </IconButton>
-        </ListItemSecondaryAction>
+        <TodoButtons {...this.props}/>
       </ListItem>
     )
   }
