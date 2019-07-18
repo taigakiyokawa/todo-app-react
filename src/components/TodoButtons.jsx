@@ -25,13 +25,9 @@ const TodoButtons = (props) => (
 // Validate type of props
 TodoButtons.propTypes = {
   id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  isDone: PropTypes.bool.isRequired,
   isEdit: PropTypes.bool.isRequired,
   handleEdit: PropTypes.func.isRequired,
-  updateTodo: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  handleDone: PropTypes.func.isRequired,
 };
 
 export default TodoButtons;
