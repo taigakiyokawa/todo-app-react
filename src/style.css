@@ -1,6 +1,11 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+  background-color: ivory;
+}
+
+h1, h4, strong {
+  color: maroon;
 }
 
 .app {
@@ -31,8 +36,13 @@ input[type="text"] {
 }
 
 input[type="submit"]:enabled {
-  background-color: mediumspringgreen;
+  background-color: mediumaquamarine;
+  color: white;
   font-weight: bold;
+}
+
+.allDone {
+  margin: 1rem 0;
 }
 
 .title, button, input[type="submit"], input[type="checkbox"] {

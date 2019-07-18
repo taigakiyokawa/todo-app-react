@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const AllDone = (props) => (
-  <div>
+  <div className="allDone">
     <input 
       type="checkbox"
       checked={ props.isAllDone }
