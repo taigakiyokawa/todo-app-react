@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Form from './Form';
+import TodoList from './TodoList';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -30,6 +31,7 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <Form createTodo={ this.createTodo }/>
+        <TodoList todoList={ this.state.todoList }/>
       </div>
     );
   }
