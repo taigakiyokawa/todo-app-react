@@ -1,9 +1,10 @@
 import React from 'react';
 import Todo from './Todo';
 import PropTypes from 'prop-types';
+import List from '@material-ui/core/List';
 
 const TodoList = (props) => (
-  <ul>
+  <List className="todoList">
     { props.todoList.map((t, i) => {
       return (
         <Todo
@@ -16,7 +17,7 @@ const TodoList = (props) => (
         />
       )
     })}
-  </ul>
+  </List>
 )
 
 // Validate type of props

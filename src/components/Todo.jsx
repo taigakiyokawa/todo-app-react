@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
 class Todo extends React.Component {
 
   // Render a todo title when "isEdit" is false
   renderDefaultView = () => {
     return (
-      <span
-        className="title" 
-        onClick={ () => this.props.handleEdit(this.props.id) }
-      >
-        { this.props.title }
-      </span>
+      <p className="title">{ this.props.title }</p>
     )
   }
 
@@ -22,37 +27,52 @@ class Todo extends React.Component {
         className="editForm" 
         onSubmit={ this.props.updateTodo.bind(this, this.props.id) }
       >
-        <input 
-          type="text"
+        <TextField
+          className="editText"
+          variant="outlined"
           type="text" 
           name="title" 
           defaultValue={ this.props.title } 
           required
         />
-        <input type="submit" value="UPDATE"/>
-        <button onClick={ () => this.props.handleEdit(this.props.id) } >
-          cancel
-        </button>
+        <Button 
+          className="updateButton"
+          size="large"
+          variant="contained"
+          color="primary"
+          size="small"
+          type="submit"
+        >
+          UPDATE
+        </Button>
       </form>
     )
   }
 
   render() {
     return(
-      <li className="todoItem">
-        <input 
-          type="checkbox"
-          checked={ this.props.isDone }
-          onChange={ () => this.props.handleDone(this.props.id) }
-        />
+      <ListItem className="todoItem">
+        <ListItemIcon>
+          <Checkbox 
+            type="checkbox"
+            checked={ this.props.isDone }
+            onChange={ () => this.props.handleDone(this.props.id) }
+          />
+        </ListItemIcon>
         { this.props.isEdit ? this.renderEditView() : this.renderDefaultView() }
-        <button 
-          className="delete"
-          onClick={ () => this.props.deleteTodo(this.props.id) }
-        >
-          x
-        </button>
-      </li>
+        <ListItemSecondaryAction>
+          <IconButton size="small" onClick={ () => this.props.handleEdit(this.props.id) }>
+            <Icon>{ this.props.isEdit ? "cancel" :  "edit_icon"}</Icon>
+          </IconButton>
+          <IconButton 
+            size="small"
+            aria-label="Delete"
+            onClick={ () => this.props.deleteTodo(this.props.id) }
+          >
+            <DeleteIcon/>
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
     )
   }
 }

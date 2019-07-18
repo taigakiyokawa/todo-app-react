@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from '@material-ui/core/Checkbox';
 
 const AllDone = (props) => (
   <div className="allDone">
-    <input 
+    <Checkbox 
       type="checkbox"
       checked={ props.isAllDone }
       onChange={ props.handleAllDone }/>

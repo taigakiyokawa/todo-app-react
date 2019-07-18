@@ -4,6 +4,9 @@ import Form from './Form';
 import TodoList from './TodoList';
 import AllDone from './AllDone';
 
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import { theme } from '../assets/theme';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -125,27 +128,29 @@ export default class App extends React.Component {
     console.log("--- updated ---");
     console.log(this.state.todoList);
     return (
-      <div className="app">
-        <Header
-          total={ this.state.todoList.length }
-          done={ this.doneCount() }/>
-        <Form 
-          createTodo={ this.createTodo }
-          isEmpty={ this.state.isEmpty } 
-          checkEmpty={ this.checkEmpty }
-        />
-        <AllDone 
-          isAllDone={ this.state.isAllDone }
-          handleAllDone={ this.handleAllDone }
-        />
-        <TodoList 
-          todoList={ this.state.todoList }
-          deleteTodo={ this.deleteTodo }
-          handleDone={ this.handleDone }
-          handleEdit={ this.handleEdit }
-          updateTodo={ this.updateTodo }
-        />
-      </div>
+      <MuiThemeProvider theme={theme}>
+        <div className="app">
+          <Header
+            total={ this.state.todoList.length }
+            done={ this.doneCount() }/>
+          <Form 
+            createTodo={ this.createTodo }
+            isEmpty={ this.state.isEmpty } 
+            checkEmpty={ this.checkEmpty }
+          />
+          <AllDone 
+            isAllDone={ this.state.isAllDone }
+            handleAllDone={ this.handleAllDone }
+          />
+          <TodoList 
+            todoList={ this.state.todoList }
+            deleteTodo={ this.deleteTodo }
+            handleDone={ this.handleDone }
+            handleEdit={ this.handleEdit }
+            updateTodo={ this.updateTodo }
+          />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
