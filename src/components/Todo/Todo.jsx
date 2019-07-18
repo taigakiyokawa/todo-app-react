@@ -6,11 +6,12 @@ import TodoButtons from './TodoButtons';
 import Checkbox from '@material-ui/core/Checkbox';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 
 const Todo = (props) => (
-  <ListItem className="todoItem">
-    <ListItemIcon>
+  <ListItem className="todoItem" style={{padding: "8px 0"}}>
+    <ListItemIcon style={{minWidth: 0}}>
       <Checkbox 
         type="checkbox"
         checked={ props.isDone }
@@ -19,9 +20,13 @@ const Todo = (props) => (
     </ListItemIcon>
     { props.isEdit ? 
       <EditForm {...props}/> : 
-      <p className="title">{ props.title }</p>
+      <p className="title" onClick={ () => props.handleDone(props.id) }>
+        { props.title }
+      </p>
     }
-    <TodoButtons {...props}/>
+    <ListItemSecondaryAction style={{right: 0}}>
+      <TodoButtons {...props}/>
+    </ListItemSecondaryAction>
   </ListItem>
 )
 

@@ -59,21 +59,16 @@ input[type="submit"]:enabled {
   border-bottom: 4px solid #009688;
 }
 
-/* .title, button, input[type="submit"], input[type="checkbox"] {
-  cursor: pointer;
-} */
 
 .title {
-  width: 80%;
+  cursor: pointer;
+  width: calc(100% - 112px);
   word-wrap: break-word;
 }
 
-.todoItem {
-  /* margin-top: 1rem; */
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+.title:hover {
+  color: #ff5722;
+  transition: 0.5s;
 }
 
 .todoList {
@@ -82,7 +77,8 @@ input[type="submit"]:enabled {
 }
 
 .editForm {
-  width: 80%;
+  width: calc(100% - 112px);
+  text-align: right;
 }
 
 .editText {
