@@ -14,7 +14,9 @@
 - src/
     - index.jsx
     - index.html
-    - style.css
+    - assets/
+        - style.css
+        - theme.js
 
     - components/
         - App.jsx
@@ -37,16 +39,13 @@ This app have some functions.
 - Delete a todo
 - Change a todo is done or not to click a checkbox
 - Change all of todos are done or not to click one checkbox
-- Change edit mode to click a todo title
+- Change edit mode to click a pencil button
 - Update a todo title
 - Watch and validate form input value is empty
 - Count all of todos and all of todos which is done
 
 
-
-
-
-## Useage
+## Installation
 1. Clone this repository to your computer
 ```
 git clone https://github.com/taigakiyokawa/todo-app-react.git
