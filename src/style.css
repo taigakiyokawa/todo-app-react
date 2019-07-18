@@ -1,16 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-  background-color: ivory;
+  background-color: darkslategray;
 }
 
 h1, h4, strong {
-  color: mediumaquamarine;
+  color: #009688;
 }
 
 .app {
   width: 100%;
-  margin: 0 16px;
+  max-width: 640px;
+  padding: 16px;
+  margin: 0 auto;
+  background-color: ivory;
 }
 
 .header {
@@ -30,41 +37,54 @@ h1, h4, strong {
   margin: 0.2rem 0 0;
 }
 
-/* input[type="text"] {
-  border: 1px solid darkgray;
-  margin-right: 0.4rem;
-} */
+.createForm {
+  width: 100%;
+}
+
+.createText {
+  width: 100%;
+  display: inline-block;
+  margin-right: 1rem;
+}
+
 
 input[type="submit"]:enabled {
-  background-color: mediumaquamarine;
+  background-color: #009688;
   color: white;
   font-weight: bold;
 }
 
 .allDone {
   margin: 1rem 0;
+  border-bottom: 4px solid #009688;
 }
 
-.title, button, input[type="submit"], input[type="checkbox"] {
+/* .title, button, input[type="submit"], input[type="checkbox"] {
   cursor: pointer;
-}
+} */
 
-.delete {
-  margin-left: 0.8rem;
-  background-color: tomato;
-  color: white;
-  width: 22px;
-  height: 22px;
-  /* padding: 0; */
-  border-radius: 50%;
-  font-size: 0.8rem;
-  font-weight: bold;
+.title {
+  width: 80%;
+  word-wrap: break-word;
 }
 
 .todoItem {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+}
+
+.todoList {
+  width: 100%;
+  padding: 0;
+}
+
+.editForm {
+  width: 80%;
+}
+
+.editText {
+  width: 100%;
 }
