@@ -2,12 +2,14 @@ import React from 'react';
 import Header from './Header';
 import Form from './Form';
 import TodoList from './TodoList';
+import AllDone from './AllDone';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       todoList: [],
+      isAllDone: false,
     };
   }
 
@@ -41,6 +43,7 @@ export default class App extends React.Component {
       <div>
         <Header/>
         <Form createTodo={ this.createTodo }/>
+        <AllDone isAllDone={ this.state.isAllDone }/>
         <TodoList 
           todoList={ this.state.todoList }
           deleteTodo={ this.deleteTodo }
