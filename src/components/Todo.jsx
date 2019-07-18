@@ -14,10 +14,21 @@ class Todo extends React.Component {
 
   renderEditView = () => {
     return (
-      <form className="editForm">
-        <input type="text"/>
+      <form 
+        className="editForm" 
+        onSubmit={ this.props.updateTodo.bind(this, this.props.id) }
+      >
+        <input 
+          type="text"
+          type="text" 
+          name="title" 
+          defaultValue={ this.props.title } 
+          required
+        />
         <input type="submit" value="UPDATE"/>
-        <button>cancel</button>
+        <button onClick={ () => this.props.handleEdit(this.props.id) } >
+          cancel
+        </button>
       </form>
     )
   }

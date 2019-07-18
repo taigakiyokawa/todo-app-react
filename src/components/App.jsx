@@ -81,6 +81,16 @@ export default class App extends React.Component {
     this.setState({ todoList: todoList });
   }
 
+  // Use in <Todo/>: Update "title" of "todolist[id]"
+  updateTodo = (id, e) => {
+    e.preventDefault();
+    const updateTodo = e.target.title.value
+    console.log(`Update: ${updateTodo}`)
+    const todoList = this.state.todoList.map((t, i) => {
+      return (i === id) ? {...t, title: updateTodo, isEdit: false} : t;
+    });
+    this.setState({ todoList: todoList });
+  }
 
 
   render() {
@@ -99,6 +109,7 @@ export default class App extends React.Component {
           deleteTodo={ this.deleteTodo }
           handleDone={ this.handleDone }
           handleEdit={ this.handleEdit }
+          updateTodo={ this.updateTodo }
         />
       </div>
     );
