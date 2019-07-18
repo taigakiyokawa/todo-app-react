@@ -1,8 +1,11 @@
 import React from 'react';
 
-const AllDone = () => (
+const AllDone = (props) => (
   <div>
-    <input type="checkbox"/>
+    <input 
+      type="checkbox"
+      checked={ props.isAllDone }
+      onChange={ props.handleAllDone }/>
     <strong>All done</strong>
   </div>
 )

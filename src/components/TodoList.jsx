@@ -10,6 +10,7 @@ const TodoList = (props) => (
           key={ i }
           id={ i }
           title={ t.title }
+          isDone={ t.isDone }
         />
       )
     })}
