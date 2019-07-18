@@ -20,7 +20,9 @@ const Todo = (props) => (
     </ListItemIcon>
     { props.isEdit ? 
       <EditForm {...props}/> : 
-      <p className="title">{ props.title }</p>
+      <p className="title" onClick={ () => props.handleDone(props.id) }>
+        { props.title }
+      </p>
     }
     <ListItemSecondaryAction style={{right: 0}}>
       <TodoButtons {...props}/>

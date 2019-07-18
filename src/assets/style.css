@@ -59,13 +59,16 @@ input[type="submit"]:enabled {
   border-bottom: 4px solid #009688;
 }
 
-/* .title, button, input[type="submit"], input[type="checkbox"] {
-  cursor: pointer;
-} */
 
 .title {
+  cursor: pointer;
   width: calc(100% - 112px);
   word-wrap: break-word;
+}
+
+.title:hover {
+  color: #ff5722;
+  transition: 0.5s;
 }
 
 .todoList {
