@@ -119,7 +119,7 @@ export default class App extends React.Component {
     console.log("--- updated ---");
     console.log(this.state.todoList);
     return (
-      <div>
+      <div className="app">
         <Header
           total={ this.state.todoList.length }
           done={ this.doneCount() }/>
