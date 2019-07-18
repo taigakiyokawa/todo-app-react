@@ -11,6 +11,7 @@ const TodoList = (props) => (
           id={ i }
           title={ t.title }
           isDone={ t.isDone }
+          isEdit={ t.isEdit }
         />
       )
     })}

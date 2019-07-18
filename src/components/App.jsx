@@ -13,13 +13,13 @@ export default class App extends React.Component {
     };
   }
 
-  // Use in <Form/>: Create a new todo{title: string}
+  // Use in <Form/>: Create a new todo{title: string, isDone: boolean, isEdit: boolean}
   createTodo = (e) => {
     // Prevent redirect
     e.preventDefault();
     const newTodo = e.target.title.value;
     console.log(`create: ${newTodo}`);
-    const todoList = [...this.state.todoList, { title: newTodo, isDone: false }];
+    const todoList = [...this.state.todoList, { title: newTodo, isDone: false, isEdit: false }];
     // Update state
     this.setState({ todoList: todoList, isAllDone: false });
     // Reset <Form/>'s input value
@@ -72,6 +72,15 @@ export default class App extends React.Component {
     this.setState({ todoList: todoList, isAllDone: isAllDone });
   }
 
+  // Use in <Todo/>: Change "todoList[id].isEdit" => true/false
+  handleEdit = (id) => {
+    console.log(`TODO ${id} is Edit mode now.`);
+    const todoList = this.state.todoList.map((t, i) => {
+      return (i === id) ? {...t, isEdit: !t.isEdit} : t;
+    });
+    this.setState({ todoList: todoList });
+  }
+
 
 
   render() {
@@ -89,6 +98,7 @@ export default class App extends React.Component {
           todoList={ this.state.todoList }
           deleteTodo={ this.deleteTodo }
           handleDone={ this.handleDone }
+          handleEdit={ this.handleEdit }
         />
       </div>
     );

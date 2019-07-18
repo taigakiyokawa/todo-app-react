@@ -5,8 +5,14 @@ const Todo = (props) => (
     <input 
       type="checkbox"
       checked={ props.isDone }
-      onChange={ () => props.handleDone(props.id) }/>
-    <span>{ props.title }</span>
+      onChange={ () => props.handleDone(props.id) }
+    />
+    <span
+      className="title" 
+      onClick={ () => props.handleEdit(props.id) }
+    >
+      { props.title }
+    </span>
     <button 
       className="delete"
       onClick={ () => props.deleteTodo(props.id) }
