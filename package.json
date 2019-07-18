@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Taiga KIYOKAWA <taiga.k127@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "start": "webpack-dev-server --hot --inline"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
