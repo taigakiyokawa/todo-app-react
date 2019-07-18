@@ -6,6 +6,7 @@ const TodoList = (props) => (
     { props.todoList.map((t, i) => {
       return (
         <Todo
+          {...props}
           key={ i }
           id={ i }
           title={ t.title }
