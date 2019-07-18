@@ -92,13 +92,24 @@ export default class App extends React.Component {
     this.setState({ todoList: todoList });
   }
 
+  // Use in <Header/>: return number of todo which isDone is true
+  doneCount = () => {
+    const doneList = this.state.todoList.filter(t => t.isDone )
+    console.log(`done: ${doneList.length}`)
+    return doneList.length
+  }
+
+  
+
 
   render() {
     console.log("--- updated ---");
     console.log(this.state.todoList);
     return (
       <div>
-        <Header/>
+        <Header
+          total={ this.state.todoList.length }
+          done={ this.doneCount() }/>
         <Form createTodo={ this.createTodo }/>
         <AllDone 
           isAllDone={ this.state.isAllDone }
