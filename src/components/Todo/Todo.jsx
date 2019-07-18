@@ -10,7 +10,7 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 
 const Todo = (props) => (
-  <ListItem className="todoItem" style={{padding: "8px 0"}}>
+  <ListItem style={{padding: "8px 0"}}>
     <ListItemIcon style={{minWidth: 0}}>
       <Checkbox 
         type="checkbox"

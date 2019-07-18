@@ -6,7 +6,7 @@ import List from '@material-ui/core/List';
 
 
 const TodoList = (props) => (
-  <List className="todoList">
+  <List>
     { props.todoList.map((t, i) => {
       return (
         <Todo

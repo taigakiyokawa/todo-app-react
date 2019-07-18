@@ -21,7 +21,7 @@ h1, h4, strong {
 }
 
 .header {
-  margin: 1rem 0;
+  margin: 1rem 0 2rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -29,36 +29,27 @@ h1, h4, strong {
 
 .headline {
   margin: 0;
+  font-size: 3rem;
 }
+
 .count {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
+
 .totalCount, .doneCount {
   margin: 0.2rem 0 0;
+  font-size: 1.4rem;
 }
 
-.createForm {
+.createForm, .createText, .editText{
   width: 100%;
-}
-
-.createText {
-  width: 100%;
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-
-input[type="submit"]:enabled {
-  background-color: #009688;
-  color: white;
-  font-weight: bold;
 }
 
 .allDone {
   margin: 1rem 0;
+  font-size: 1.2rem;
   border-bottom: 4px solid #009688;
 }
-
 
 .title {
   cursor: pointer;
@@ -71,16 +62,7 @@ input[type="submit"]:enabled {
   transition: 0.5s;
 }
 
-.todoList {
-  width: 100%;
-  padding: 0;
-}
-
 .editForm {
   width: calc(100% - 112px);
   text-align: right;
-}
-
-.editText {
-  width: 100%;
 }

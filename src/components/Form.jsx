@@ -20,7 +20,6 @@ const Form = (props) => (
       </Grid>
       <Grid item xs={3}>
         <Fab
-          className="createButton"
           color="primary"
           aria-label="Add"
           type="submit"

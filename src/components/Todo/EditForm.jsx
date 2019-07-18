@@ -18,8 +18,6 @@ const EditForm = (props) => (
       required
     />
     <Button 
-      className="updateButton"
-      size="large"
       variant="contained"
       color="primary"
       size="small"
