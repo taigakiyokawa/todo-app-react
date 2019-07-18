@@ -1,10 +1,10 @@
 import React from 'react';
 
 const Todo = (props) => (
-  <li>
+  <li className="todoItem">
     <input type="checkbox"/>
     <span>{ props.title }</span>
-    <button>x</button>
+    <button className="delete">x</button>
   </li>
 )
 
