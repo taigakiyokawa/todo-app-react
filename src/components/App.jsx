@@ -32,8 +32,10 @@ export default class App extends React.Component {
     console.log(`delete: ${todoWillDelete.title}`);
     // Create a new todoList without "todoWillDelete"
     const todoList = this.state.todoList.filter(t => t !== todoWillDelete);
+    // If all "isDone" in "todoList" is true, "this.and(todoList)" will return true
+    const isAllDone = this.and(todoList);
     // Update state
-    this.setState({ todoList: todoList });
+    this.setState({ todoList: todoList, isAllDone: isAllDone });
   }
 
   // Use in handleDone(): Return true/false result by AND for all "isDone" in todoList
