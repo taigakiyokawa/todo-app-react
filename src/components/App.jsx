@@ -14,6 +14,15 @@ export default class App extends React.Component {
     };
   }
 
+  // Use in <Header/>: return number of todo which isDone is true
+  doneCount = () => {
+    const doneList = this.state.todoList.filter(t => t.isDone )
+    console.log(`done: ${doneList.length}`)
+    return doneList.length
+  }
+
+
+
   // Use in <Form/>: Create a new todo{title: string, isDone: boolean, isEdit: boolean}
   createTodo = (e) => {
     // Prevent redirect
@@ -27,17 +36,18 @@ export default class App extends React.Component {
     e.target.title.value = "";
   }
 
-  // Use in <Todo/>: Delete "todoList[id]"
-  deleteTodo = (id) => {
-    const todoWillDelete = this.state.todoList[id];
-    console.log(`delete: ${todoWillDelete.title}`);
-    // Create a new todoList without "todoWillDelete"
-    const todoList = this.state.todoList.filter(t => t !== todoWillDelete);
-    // If all "isDone" in "todoList" is true, "this.and(todoList)" will return true
-    const isAllDone = this.and(todoList);
-    // Update state
-    this.setState({ todoList: todoList, isAllDone: isAllDone });
+  // Use in <Form/>: Watch <Form/>'s input value.
+  checkEmpty = (e) => {
+    // Prevent redirect
+    e.preventDefault();
+    const value = e.target.value;
+    console.log(value);
+    // If value isn't empty, "isEmpty" will be false and submit button will be enabled.
+    const isEmpty = (value === "") ? true : false
+    console.log(`isEmpty: ${isEmpty}`);
+    this.setState({ isEmpty: isEmpty });
   }
+
 
   // Use in handleDone(): Return true/false result by AND for all "isDone" in todoList
   and = (todoList) => {
@@ -51,6 +61,17 @@ export default class App extends React.Component {
     }
   }
 
+  // Use in <AllDone/>: Change "isAllDone" => true/false
+  handleAllDone = () => {
+    const isAllDone = !this.state.isAllDone;
+    const todoList = this.state.todoList.map(t => {
+      // If "isAllDone" is true, all "isDone" in todoList will be true. Else, they will be false.
+      return (isAllDone) ? {...t, isDone: true} : {...t, isDone: false};
+    });
+    // Update state
+    this.setState({ todoList: todoList, isAllDone: isAllDone });
+  }
+
   // Use in <Todo/>: Change todoList[id].isDone => true/false
   handleDone = (id) => {
     const todoList = this.state.todoList.map((t, i) => {
@@ -62,13 +83,17 @@ export default class App extends React.Component {
     this.setState({ todoList: todoList, isAllDone: isAllDone });
   }
 
-  // Use in <AllDone/>: Change "isAllDone" => true/false
-  handleAllDone = () => {
-    const isAllDone = !this.state.isAllDone;
-    const todoList = this.state.todoList.map(t => {
-      // If "isAllDone" is true, all "isDone" in todoList will be true. Else, they will be false.
-      return (isAllDone) ? {...t, isDone: true} : {...t, isDone: false};
-    });
+
+
+
+  // Use in <Todo/>: Delete "todoList[id]"
+  deleteTodo = (id) => {
+    const todoWillDelete = this.state.todoList[id];
+    console.log(`delete: ${todoWillDelete.title}`);
+    // Create a new todoList without "todoWillDelete"
+    const todoList = this.state.todoList.filter(t => t !== todoWillDelete);
+    // If all "isDone" in "todoList" is true, "this.and(todoList)" will return true
+    const isAllDone = this.and(todoList);
     // Update state
     this.setState({ todoList: todoList, isAllDone: isAllDone });
   }
@@ -91,25 +116,6 @@ export default class App extends React.Component {
       return (i === id) ? {...t, title: updateTodo, isEdit: false} : t;
     });
     this.setState({ todoList: todoList });
-  }
-
-  // Use in <Header/>: return number of todo which isDone is true
-  doneCount = () => {
-    const doneList = this.state.todoList.filter(t => t.isDone )
-    console.log(`done: ${doneList.length}`)
-    return doneList.length
-  }
-
-  // Use in <Form/>: Watch <Form/>'s input value.
-  checkEmpty = (e) => {
-    // Prevent redirect
-    e.preventDefault();
-    const value = e.target.value;
-    console.log(value);
-    // If value isn't empty, "isEmpty" will be false and submit button will be enabled.
-    const isEmpty = (value === "") ? true : false
-    console.log(`isEmpty: ${isEmpty}`);
-    this.setState({ isEmpty: isEmpty });
   }
 
 

@@ -1,6 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Todo extends React.Component {
+
+  // Render a todo title when "isEdit" is false
   renderDefaultView = () => {
     return (
       <span
@@ -12,6 +15,7 @@ class Todo extends React.Component {
     )
   }
 
+  // Render form for updating todo when "isEdit" is true
   renderEditView = () => {
     return (
       <form 
@@ -52,5 +56,17 @@ class Todo extends React.Component {
     )
   }
 }
+
+// Validate type of props
+Todo.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  isDone: PropTypes.bool.isRequired,
+  isEdit: PropTypes.bool.isRequired,
+  handleEdit: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  handleDone: PropTypes.func.isRequired,
+};
 
 export default Todo;

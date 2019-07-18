@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Header = (props) => (
   <div className="header">
@@ -9,5 +10,11 @@ const Header = (props) => (
     </div>
   </div>
 )
+
+// Validate type of props
+Header.propTypes = {
+ total: PropTypes.number,
+ done: PropTypes.number 
+}
 
 export default Header;
