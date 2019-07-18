@@ -10,6 +10,7 @@ export default class App extends React.Component {
     this.state = {
       todoList: [],
       isAllDone: false,
+      isEmpty: true,
     };
   }
 
@@ -21,7 +22,7 @@ export default class App extends React.Component {
     console.log(`create: ${newTodo}`);
     const todoList = [...this.state.todoList, { title: newTodo, isDone: false, isEdit: false }];
     // Update state
-    this.setState({ todoList: todoList, isAllDone: false });
+    this.setState({ todoList: todoList, isAllDone: false, isEmpty: true });
     // Reset <Form/>'s input value
     e.target.title.value = "";
   }
@@ -99,7 +100,19 @@ export default class App extends React.Component {
     return doneList.length
   }
 
-  
+  // Use in <Form/>: Watch <Form/>'s input value.
+  checkEmpty = (e) => {
+    // Prevent redirect
+    e.preventDefault();
+    const value = e.target.value;
+    console.log(value);
+    // If value isn't empty, "isEmpty" will be false and submit button will be enabled.
+    const isEmpty = (value === "") ? true : false
+    console.log(`isEmpty: ${isEmpty}`);
+    this.setState({ isEmpty: isEmpty });
+  }
+
+
 
 
   render() {
@@ -110,7 +123,11 @@ export default class App extends React.Component {
         <Header
           total={ this.state.todoList.length }
           done={ this.doneCount() }/>
-        <Form createTodo={ this.createTodo }/>
+        <Form 
+          createTodo={ this.createTodo }
+          isEmpty={ this.state.isEmpty } 
+          checkEmpty={ this.checkEmpty }
+        />
         <AllDone 
           isAllDone={ this.state.isAllDone }
           handleAllDone={ this.handleAllDone }
