@@ -1,20 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextField from '@material-ui/core/TextField';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 const Form = (props) => (
   <form onSubmit={ props.createTodo }>
     <div>
-      <input
+      <TextField
+        variant="outlined"
         type="text"
         name="title"
         onChange={ props.checkEmpty }
-        required
       />
-      <input
+      <Fab
+        color="primary"
+        aria-label="Add"
         type="submit"
         value="CREATE" 
         disabled={ props.isEmpty }
-      />
+      >
+        <AddIcon/>
+      </Fab>
     </div>
   </form>
 )

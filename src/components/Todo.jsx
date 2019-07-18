@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Checkbox from '@material-ui/core/Checkbox';
 
 class Todo extends React.Component {
 
@@ -40,7 +41,7 @@ class Todo extends React.Component {
   render() {
     return(
       <li className="todoItem">
-        <input 
+        <Checkbox 
           type="checkbox"
           checked={ this.props.isDone }
           onChange={ () => this.props.handleDone(this.props.id) }
