@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Form from './Form';
-import TodoList from './Todo/TodoList';
+import TodoList from './todo/TodoList';
 import AllDone from './AllDone';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
