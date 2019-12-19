@@ -63,16 +63,8 @@ yarn run start
 yarn run build
 ```
 
-## Other
-提出が大変遅くなってしまい申し訳ありません。合計作業時間は約3週間ほどです。webpack, babel, Reactの現時点での正しい書き方や, 他人が見ても理解できるようなコードの書き方、各動作をきちんと理解することなどにより、単純なアプリにも関わらず大幅な時間を費やしてしまいました。この提出するリポジトリはコミットを丁寧に書くために作り上げた完成版で、これが出来上がるまでにたくさんの実験用リポジトリも作成したので、そういった点も評価していただけると幸いです。また、Reduxの使用も検討しましたが、React公式ドキュメントにもある通りまずはReact自体をしっかり理解することが重要と判断し、Reactのみで作成しています。
-以上、何卒よろしくお願いいたします。
-
-### other repositories about this app
+### Other repositories about this app
 - [react-todo-app](https://github.com/taigakiyokawa/react-todo-app)
-- [react-todo](https://github.com/taigakiyokawa/react-todo)
-- [edit-text](https://github.com/taigakiyokawa/edit-text)
-- [react-redux-todo](https://github.com/taigakiyokawa/react-redux-todo)
-- [setting-react-app](https://github.com/taigakiyokawa/setting-react-app)
 
 ## References
 - [React – ユーザインターフェース構築のための JavaScript ライブラリ](https://ja.reactjs.org/)
